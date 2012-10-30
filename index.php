@@ -43,7 +43,7 @@
     <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
     <div class="container-fluid">
       <div class="page-header">
-        <span class="pull-right"><a href="#">Destin</a> / <a href="#">Logout</a></span>
+        <span class="pull-right"><a href="#">Admin</a> / <a href="#">Logout</a></span>
         <h1>Biomedical Diagnostic System <small>class project prototype</small></h1>
       </div>
       <div class="row-fluid">
@@ -162,16 +162,16 @@
                 </p>
                 <blockquote>
                   <p>amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                  <small><cite title="Source Title">Destin</cite> (<a href="#">delete</a>)</small>
+                  <small><cite title="Source Title">Admin</cite> (<a href="#">delete</a>)</small>
                   <br />
                   <blockquote>
                     <p>amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <small><cite title="Source Title">Carlos</cite> (<a href="#">reply</a>)</small>
+                    <small><cite title="Source Title">Bob</cite> (<a href="#">reply</a>)</small>
                   </blockquote>
                 </blockquote>
                 <blockquote>
                   <p>amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                  <small><cite title="Source Title">Carlos</cite> (<a href="#">reply</a>)</small>
+                  <small><cite title="Source Title">Bob</cite> (<a href="#">reply</a>)</small>
                 </blockquote>
               </div>
             </div>
@@ -180,7 +180,7 @@
       </div>
       <hr>
       <footer>
-      <p>carlos agustin alvarez; destin smith-norris</p>
+      <p></p>
       </footer>
     </div> <!-- /container -->
   </body>
