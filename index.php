@@ -44,38 +44,32 @@
     <div class="container-fluid">
       <div class="page-header">
         <span class="pull-right"><a href="#">Admin</a> / <a href="#">Logout</a></span>
-        <h1>Biomedical Diagnostic System <small>class project prototype</small></h1>
+        <h1>
+          Biomedical Diagnostic System <small>class project prototype</small>
+        </h1>
       </div>
       <div class="row-fluid">
         <div class="span2">
           <form class="form-search">
-            <h3>Manufacturer</h3>
-            <select id="manuSelect">
-              <option value="">Manufacturer</option>
-              <option value="Tram">Tram</option>
-              <option value="DINAMAP">DINAMAP</option>
+            <h3>Device</h3>
+            <select ng-model="deviceSelect" ng-options="c.name group by c.manu for c in fakeDB" ng-change="updateSelects()">
+              <option value="">-- chose device --</option>
             </select>
+            <br>
             <br />
-            <br />
-            <h3>Device Name</h3>
-            <select id="deviceNameSelect" disabled=true>
-              <option value="">Name</option>
-            </select>
-            <br />
-            <br />
-            <h3>Device Model</h3 >
-            <select id="deviceModelSelect" disabled=true>
-              <option value="">Model</option>
+            <h3>Model</h3 >
+            <select ng-model="modelSelect" ng-options="c.model for c in models" ng-change="updateSelects()">
+              <option value="">-- chose model --</option>
             </select>
             <br />
             <br />
             <h3>Error Code</h3>
-            <select id="errorSelect" disabled=disabled>
-              <option value="">Error Code</option>
+            <select ng-model="errorSelect" ng-options="c.errorcode for c in errors">
+              <option value="">-- chose code --</option>
             </select>
             <br />
             <br />
-            <button type="button" class="btn btn-large btn-primary disabled">View</button>
+            <button type="button" class="btn btn-large btn-primary" ng-click="viewError()">View</button>
           </form>
         </div>
         <div class="span10">
@@ -87,7 +81,7 @@
               </a>
             </li>
             <li class="">
-              <a href="#model2" data-toggle="tab">DINAMAP PRO 1000V3
+              <a href="#model2" data-toggle="tab">{{selectedDevice.name}} {{selectedDevice.model}}
                 <i class="icon-remove-circle clickIcon"></i>
               </a>
             </li>
@@ -127,7 +121,7 @@
                   </div>
                 </div>
                 <div class="control-group">
-                  <label class="control-label" for="inputSolution">Problem Solutoin</label>
+                  <label class="control-label" for="inputSolution">Problem Solution</label>
                   <div class="controls">
                     <textarea class="span6" id="taSolution" rows=5 cols=30 ></textarea>
                   </div>
@@ -141,19 +135,19 @@
             </div>
             <div class="tab-pane fade" id="model2">
               <div class="span6">
-                <legend>TRAM <small>250SL - 451SL</small></legend>
+                <legend>{{selectedDevice.name}} <small>{{selectedDevice.model}}</small></legend>
                 <dl>
                   <dt><i class="icon-warning-sign"></i> Error Code</dt>
-                  <dd><p class="lead errorText">SY-16</p></dd>
+                  <dd><p class="lead errorText">{{selectedError.errorcode}}</p></dd>
                   <dt><i class="icon-question-sign"></i> Meaning of Error Code</dt>
-                  <dd><p class="lead descriptionText">Power fail signal true time is too long.</p></dd>
+                  <dd><p class="lead descriptionText">{{selectedError.problem}}</p></dd>
                   <dt><i class="icon-ok-sign"></i> Solution</dt>
-                  <dd><p class="lead solutionText">Replace Main CPU Board</p></dd>
+                  <dd><p class="lead solutionText">{{selectedError.solution}}</p></dd>
                 </dl>
                 <br />
                 <br />
-                <a class="btn" href="#"><i class="icon-thumbs-up"></i> helpful</a>
-                <a class="btn" href="#"><i class="icon-thumbs-down"></i> not helpful</a>
+                <a class="btn" href="#"><i class="icon-thumbs-up"></i> <span style="color:green;">14</span></a>
+                <a class="btn" href="#"><i class="icon-thumbs-down"></i> <span style="color:red;">4</span></a>
               </div>
               <div class="span5">
                 <legend><small>comments</small></legend>
