@@ -59,7 +59,25 @@ var fakeDB = [
             solution: 'Replace Power Supply'
           }
         ]
-      }
+      },
+        {
+ manu: 'Welch Allyn Spot',
+         name: 'Vital Signs Monitor',
+         model: '420',
+         errors: [
+           {errorcode: 'C12', problem: 'Device outside operating temperature range', solution: 'Change ambient temperature.'},
+           {errorcode: 'C13', problem: 'Low battery level.', solution: 'Charge battery.'},
+           ]
+ },
+ {
+ manu: 'Welch Allyn Spot',
+       name: 'Vital Signs Monitor',
+       model: '9600',
+       errors: [
+         {errorcode: 'C13', problem: 'Low battery level.', solution: 'Charge battery.'},
+         {errorcode: 'C02', problem: 'Unable to release cuff pressure.', solution: 'Check tubing and connection integrity.'}
+         ]
+ }
 ];
 
 var db_manus = [
@@ -69,7 +87,7 @@ var db_manus = [
   },
   {
     id: 2,
-    name: "Siemens"
+    name: "Vital Signs Monitor"
   }
 ];
 

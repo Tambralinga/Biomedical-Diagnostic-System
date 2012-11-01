@@ -154,17 +154,9 @@
                   <a href="#" class="btn btn-link">add comment</a>
                 </p>
                 <blockquote>
-                  <p>amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <p>verified</p>
                   <small><cite title="Source Title">Admin</cite> (<a href="#">delete</a>)</small>
                   <br />
-                  <blockquote>
-                    <p>amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <small><cite title="Source Title">Bob</cite> (<a href="#">reply</a>)</small>
-                  </blockquote>
-                </blockquote>
-                <blockquote>
-                  <p>amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                  <small><cite title="Source Title">Bob</cite> (<a href="#">reply</a>)</small>
                 </blockquote>
               </div>
             </div>
