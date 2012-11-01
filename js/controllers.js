@@ -17,6 +17,7 @@ function mainCtrl($scope) {
     if($scope.errorSelect) {
       $scope.selectedDevice = $scope.deviceSelect;
       $scope.selectedError = $scope.errorSelect;
+      $('#myTab a[href="#model2"]').tab('show');
     }
   };
 }
@@ -59,6 +60,17 @@ var fakeDB = [
           }
         ]
       }
+];
+
+var db_manus = [
+  {
+    id: 1,
+    name: "GE",
+  },
+  {
+    id: 2,
+    name: "Siemens"
+  }
 ];
 
 function getManus() {

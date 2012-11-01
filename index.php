@@ -82,7 +82,6 @@
             </li>
             <li class="">
               <a href="#model2" data-toggle="tab">{{selectedDevice.name}} {{selectedDevice.model}}
-                <i class="icon-remove-circle clickIcon"></i>
               </a>
             </li>
           </ul>
