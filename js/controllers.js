@@ -1,23 +1,27 @@
-function mainCtrl($scope) {
-  $scope.fakeDB = fakeDB;
+function mainCtrl($scope, $http) {
+  $http.get('./bin/ajax.php', {params:{action:'get_devices'}}).success(function(data) {
+    $scope.devices = data;
+  });
 
+  $scope.updateModels = function() {
+    $http.get('./bin/ajax.php', {params:{action:'get_models', manu: $scope.deviceSelect.manu, name: $scope.deviceSelect.name}}).success(function(data) {
+      $scope.errors = {};
+      $scope.models = data;
+    });
+  };
 
-  $scope.updateSelects = function() {
-    $scope.models = [];
-    angular.forEach($scope.fakeDB, function(device) {
-        if(device.name == $scope.deviceSelect.name) {
-        $scope.models.push(device);
-        }
-        });
-
-    $scope.errors = $scope.deviceSelect.errors;
+  $scope.updateErrors = function() {
+    $http.get('./bin/ajax.php', {params:{action:'get_errors', manu: $scope.deviceSelect.manu, name: $scope.deviceSelect.name, model: $scope.modelSelect.model}}).success(function(data) {
+      $scope.errors = data;
+    });
   };
 
   $scope.viewError = function() {
     if($scope.errorSelect) {
-      $scope.selectedDevice = $scope.deviceSelect;
-      $scope.selectedError = $scope.errorSelect;
-      $('#myTab a[href="#model2"]').tab('show');
+      $http.get('./bin/ajax.php', {params:{action:'get_result', manu: $scope.deviceSelect.manu, name: $scope.deviceSelect.name, model: $scope.modelSelect.model, error_code: $scope.errorSelect.error_code}}).success(function(data) {
+        $('#myTab a[href="#model2"]').tab('show');
+        $scope.result = data;
+      });
     }
   };
 }

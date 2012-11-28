@@ -52,19 +52,19 @@
         <div class="span2">
           <form class="form-search">
             <h3>Device</h3>
-            <select ng-model="deviceSelect" ng-options="c.name group by c.manu for c in fakeDB" ng-change="updateSelects()">
+            <select ng-model="deviceSelect" ng-options="c.name group by c.manu for c in devices" ng-change="updateModels()">
               <option value="">-- chose device --</option>
             </select>
             <br>
             <br />
             <h3>Model</h3 >
-            <select ng-model="modelSelect" ng-options="c.model for c in models" ng-change="updateSelects()">
+            <select ng-model="modelSelect" ng-options="c.model for c in models" ng-change="updateErrors()">
               <option value="">-- chose model --</option>
             </select>
             <br />
             <br />
             <h3>Error Code</h3>
-            <select ng-model="errorSelect" ng-options="c.errorcode for c in errors">
+            <select ng-model="errorSelect" ng-options="c.error_code for c in errors">
               <option value="">-- chose code --</option>
             </select>
             <br />
@@ -81,8 +81,7 @@
               </a>
             </li>
             <li class="">
-              <a href="#model2" data-toggle="tab">{{selectedDevice.name}} {{selectedDevice.model}}
-              </a>
+              <a href="#model2" data-toggle="tab">{{result.manu}}</a>
             </li>
           </ul>
           <div id="myTabContent" class="tab-content">
@@ -134,14 +133,14 @@
             </div>
             <div class="tab-pane fade" id="model2">
               <div class="span6">
-                <legend>{{selectedDevice.name}} <small>{{selectedDevice.model}}</small></legend>
+                <legend>{{result.name}} <small>{{result.model}}</small></legend>
                 <dl>
                   <dt><i class="icon-warning-sign"></i> Error Code</dt>
-                  <dd><p class="lead errorText">{{selectedError.errorcode}}</p></dd>
+                  <dd><p class="lead errorText">{{result.error_code}}</p></dd>
                   <dt><i class="icon-question-sign"></i> Meaning of Error Code</dt>
-                  <dd><p class="lead descriptionText">{{selectedError.problem}}</p></dd>
+                  <dd><p class="lead descriptionText">{{result.meaning}}</p></dd>
                   <dt><i class="icon-ok-sign"></i> Solution</dt>
-                  <dd><p class="lead solutionText">{{selectedError.solution}}</p></dd>
+                  <dd><p class="lead solutionText">{{result.solution}}</p></dd>
                 </dl>
                 <br />
                 <br />
