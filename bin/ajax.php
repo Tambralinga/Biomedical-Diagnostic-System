@@ -4,11 +4,11 @@ if(isset($_GET['action'])) main($_GET['action']);
 function main($action) {
   global $dbh;
   //orchestra
-  //$dbh = new PDO('mysql:host=a.db.shared.orchestra.io;dbname=db_98938371', "user_98938371", "MlVgDkba1Mmn-,");
+  $dbh = new PDO('mysql:host=a.db.shared.orchestra.io;dbname=db_98938371', "user_98938371", "MlVgDkba1Mmn-,");
   //localhost
-  $dbh = new PDO('mysql:host=localhost;dbname=db_98938371', "user_98938371", "MlVgDkba1Mmn-,");
-  error_reporting(E_ALL);
-  ini_set("display_errors", 1);
+  //$dbh = new PDO('mysql:host=localhost;dbname=db_98938371', "user_98938371", "MlVgDkba1Mmn-,");
+  //error_reporting(E_ALL);
+  //ini_set("display_errors", 1);
 
   if($action == "get_devices") {
     getDevices();
