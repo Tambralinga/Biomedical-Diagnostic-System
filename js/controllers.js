@@ -35,7 +35,12 @@ function mainCtrl($scope, $http) {
       "meaning": $scope.inputProblem,
       "solution": $scope.inputSolution
     }).success(function(data) {
-      console.log(data);
+      if(data == 1) {
+        alert("Thank you! Your entry has been submited.");
+        addEntryForm.reset();
+      } else {
+        alert("There was a problem saving the data to the server!");
+      }
     });
   };
 }
