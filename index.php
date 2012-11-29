@@ -86,47 +86,47 @@
           </ul>
           <div id="myTabContent" class="tab-content">
             <div class="tab-pane active" id="add">
-              <form class="form-horizontal">
+              <form class="form-horizontal" name="addEntryForm">
                 <legend>Add a New Device</legend>
                 <div class="control-group">
                   <label class="control-label" for="inputManu">Manufacturer</label>
                   <div class="controls">
-                    <input type="text" id="inputManu" placeholder="Manufacturer">
+                    <input type="text" id="inputManu" ng-model="inputManu" placeholder="Manufacturer">
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label" for="inputName">Device Name</label>
                   <div class="controls">
-                    <input type="text" id="inputName" placeholder="Name">
+                    <input type="text" id="inputName" ng-model="inputName" placeholder="Name">
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label" for="inputModel">Device Model</label>
                   <div class="controls">
-                    <input type="text" id="inputID" placeholder="ID">
+                    <input type="text" id="inputModel" ng-model="inputModel" placeholder="ID">
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label" for="inputErrorCode">Error Code</label>
                   <div class="controls">
-                    <input type="text" id="inputErrorCode" placeholder="Error Code">
+                    <input type="text" id="inputErrorCode" ng-model="inputErrorCode" placeholder="Error Code">
                   </div>
                 </div>
                 <div class="control-group">
-                  <label class="control-label" for="taProblem">Meaning of Error Code</label>
+                  <label class="control-label" for="inputProblem">Meaning of Error Code</label>
                   <div class="controls">
-                    <textarea class="span6" id="taProblem" rows="5" cols="30" ></textarea>
+                    <textarea class="span6" id="inputProblem" rows="5" cols="30" ng-model="inputProblem"></textarea>
                   </div>
                 </div>
                 <div class="control-group">
                   <label class="control-label" for="inputSolution">Problem Solution</label>
                   <div class="controls">
-                    <textarea class="span6" id="taSolution" rows=5 cols=30 ></textarea>
+                    <textarea class="span6" id="inputSolution" rows=5 cols=30 ng-model="inputSolution" ></textarea>
                   </div>
                 </div>
                 <div class="control-group">
                   <div class="controls">
-                    <button type="submit" class="btn">Submit</button>
+                    <button type="submit" class="btn" ng-click='submitNewEntry()'>Submit</button>
                   </div>
                 </div>
               </form>

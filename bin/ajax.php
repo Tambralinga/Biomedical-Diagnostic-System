@@ -1,13 +1,12 @@
 <?php
-
 if(isset($_GET['action'])) main($_GET['action']);
 
 function main($action) {
   global $dbh;
   //orchestra
-  $dbh = new PDO('mysql:host=a.db.shared.orchestra.io;dbname=db_98938371', "user_98938371", "MlVgDkba1Mmn-,");
+  //$dbh = new PDO('mysql:host=a.db.shared.orchestra.io;dbname=db_98938371', "user_98938371", "MlVgDkba1Mmn-,");
   //localhost
-  //$dbh = new PDO('mysql:host=localhost;dbname=db_98938371', "user_98938371", "MlVgDkba1Mmn-,");
+  $dbh = new PDO('mysql:host=localhost;dbname=db_98938371', "user_98938371", "MlVgDkba1Mmn-,");
   error_reporting(E_ALL);
   ini_set("display_errors", 1);
 
@@ -19,6 +18,8 @@ function main($action) {
     getErrors();
   } else if($action == "get_result") {
     getResult();
+  } else if($action == "add_entry") {
+    addEntry();
   }
 }
 
@@ -72,4 +73,23 @@ function getResult() {
   $sth->execute(array($manu, $name, $model, $error_code));
   $result = $sth->fetch(PDO::FETCH_ASSOC);
   echo json_encode($result);
+}
+
+function addEntry() {
+  $data = file_get_contents("php://input");
+  $objData = json_decode($data, true);
+  if(isset($objData['manu']) && isset($objData['name']) && isset($objData['model']) && isset($objData['error_code']) && isset($objData['meaning']) && isset($objData['solution'])) {
+    $manu = $objData['manu'];
+    $name = $objData['name'];
+    $model = $objData['model'];
+    $error_code = $objData['error_code'];
+    $meaning = $objData['meaning'];
+    $solution = $objData['solution'];
+  } else {
+    return -1;
+  }
+  global $dbh;
+  $sth = $dbh->prepare("INSERT INTO `db_entries` (`id`, `manu`, `name`, `model`, `error_code`, `meaning`, `solution`) VALUES (NULL, ?, ?, ?, ?, ?, ?);");
+  $res = $sth->execute(array($manu, $name, $model, $error_code, $meaning, $solution));
+  echo $res;
 }
