@@ -44,3 +44,11 @@ function mainCtrl($scope, $http) {
     });
   };
 }
+
+function showCommentBox() {
+  $('#commentBoxP').show();
+}
+
+function hideCommentBox() {
+  $('#commentBoxP').hide();
+}

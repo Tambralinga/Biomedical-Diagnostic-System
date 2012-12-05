@@ -149,8 +149,12 @@
               </div>
               <div class="span5">
                 <legend><small>comments</small></legend>
+                <p id='commentBoxP' style='display: none'>
+                  <textarea class="span6" id="" rows="5" cols="30" ></textarea>
+                  <a href="#" class="btn btn-link" onclick="hideCommentBox()">submit</a>
+                </p>
                 <p>
-                  <a href="#" class="btn btn-link">add comment</a>
+                  <a href="#" class="btn btn-link" onclick="showCommentBox()" >add comment</a>
                 </p>
                 <blockquote>
                   <p>verified</p>
